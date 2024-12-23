@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>Study Helper for Leaving Certificate Students</title>
+</head>
+<body class="bg-gray-100">
+    <!-- Responsive Navigation Bar -->
+    <script type="module" src="./html_components/navbar.html"></script>
+    <!-- Main Content -->
+    <main class="container mx-auto mt-6 px-4">
+        <section id="resources" class="mb-8">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Study Resources</h2>
+            <p class="text-gray-600">Access notes, past papers, and guides for all Leaving Certificate subjects.</p>
+        </section>
+
+        <section id="coursework" class="mb-8">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Coursework Help</h2>
+            <p class="text-gray-600">Get guidance on completing your assignments and preparing for exams.</p>
+        </section>
+
+        <section id="tips" class="mb-8">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Study Tips</h2>
+            <p class="text-gray-600">Learn proven techniques to boost your productivity and retain more information.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-gray-700 py-4 text-center">
+        <p>&copy; 2024 Leaving Certificate Study Helper. All rights reserved.</p>
+    </footer>
+
+    
+
+        <script>
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('[aria-label="Global"] button');
+            const mobileMenu = document.querySelector('[role="dialog"]');
+            const mobileMenuCloseButton = mobileMenu.querySelector('button');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileMenuCloseButton.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+
+            // Flyout menu toggle for 'Product'
+            const productButton = document.querySelector('button[aria-expanded="false"]');
+            const productFlyoutMenu = productButton.nextElementSibling;
+
+            productButton.addEventListener('click', () => {
+                const isExpanded = productButton.getAttribute('aria-expanded') === 'true';
+                productButton.setAttribute('aria-expanded', !isExpanded);
+                productFlyoutMenu.classList.toggle('hidden');
+            });
+
+            // Close flyout menu when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!productButton.contains(event.target) && !productFlyoutMenu.contains(event.target)) {
+                productButton.setAttribute('aria-expanded', 'false');
+                productFlyoutMenu.classList.add('hidden');
+                }
+            });
+        </script>
+
+</body>
+</html>
